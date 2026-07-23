@@ -1,0 +1,25 @@
+.breadcrumb {
+  padding: 12px 24px;
+  font-size: 13px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.link {
+  color: #4f46e5;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.sep {
+  margin: 0 8px;
+  color: var(--text-secondary);
+}
+
+.current {
+  color: var(--text);
+  font-weight: 500;
+}
