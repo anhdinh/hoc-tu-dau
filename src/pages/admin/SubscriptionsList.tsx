@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import api from '../../api'
-import ConfirmPopup from '../../components/ConfirmPopup'
-import { useToast } from '../../stores/toastStore'
+import api from '@/services/api'
+import ConfirmPopup from '@/components/ConfirmPopup'
+import { useToast } from '@/stores/toastStore'
 
 type Subscription = {
   memberId: string

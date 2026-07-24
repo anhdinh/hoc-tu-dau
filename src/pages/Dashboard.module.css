@@ -1,0 +1,51 @@
+.page {
+  /* container */
+}
+
+/* ── Stats row ─────────────────────────────────── */
+.statsRow {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.statCard {
+  flex: 1;
+  min-width: 160px;
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+}
+
+.statLabel {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.statValue {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+/* ── Charts row ─────────────────────────────────── */
+.chartsRow {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.chartBox {
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid var(--border);
+}
+
+.chartTitle {
+  margin: 0 0 16px;
+  font-size: 16px;
+  color: var(--text);
+}

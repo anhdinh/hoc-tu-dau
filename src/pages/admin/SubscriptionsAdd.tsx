@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import api from '../../api'
-import { useToast } from '../../stores/toastStore'
+import api from '@/services/api'
+import { useToast } from '@/stores/toastStore'
 
 type Catalog = { id: string; name: string }
 type User = { id: string; username: string }

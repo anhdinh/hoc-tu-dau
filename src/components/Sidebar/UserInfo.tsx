@@ -1,4 +1,4 @@
-import { useUser } from '../../contexts/UserContext'
+import { useUser } from '@/contexts/UserContext'
 import styles from './Sidebar.module.css'
 
 export default function UserInfo({ collapsed }: { collapsed: boolean }) {

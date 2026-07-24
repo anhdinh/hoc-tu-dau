@@ -3,6 +3,7 @@ import {
   PieChart, Pie, Cell,
   LineChart, Line,
 } from 'recharts'
+import styles from './Dashboard.module.css'
 
 const revenueData = [
   { month: 'Jan', revenue: 4000 },
@@ -41,30 +42,21 @@ const stats = [
 
 export default function Dashboard() {
   return (
-    <div>
-      <div style={{ display: 'flex', gap: 16, marginBottom: 24 }}>
+    <div className={styles.page}>
+      <div className={styles.statsRow}>
         {stats.map((s) => (
-          <div
-            key={s.label}
-            style={{
-              flex: 1,
-              background: '#fff',
-              borderRadius: 8,
-              padding: '16px 20px',
-              border: '1px solid #e5e4e7',
-            }}
-          >
-            <div style={{ fontSize: 13, color: '#6b6375' }}>{s.label}</div>
-            <div style={{ fontSize: 24, fontWeight: 700, color: s.color, marginTop: 4 }}>
+          <div key={s.label} className={styles.statCard}>
+            <div className={styles.statLabel}>{s.label}</div>
+            <div className={styles.statValue} style={{ color: s.color }}>
               {s.value}
             </div>
           </div>
         ))}
       </div>
 
-      <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-        <div style={{ flex: 2, minWidth: 300, background: '#fff', borderRadius: 8, padding: 20, border: '1px solid #e5e4e7' }}>
-          <h3 style={{ margin: '0 0 16px', fontSize: 16 }}>Revenue</h3>
+      <div className={styles.chartsRow}>
+        <div style={{ flex: 2, minWidth: 300 }} className={styles.chartBox}>
+          <h3 className={styles.chartTitle}>Revenue</h3>
           <ResponsiveContainer width="100%" height={250}>
             <BarChart data={revenueData}>
               <XAxis dataKey="month" fontSize={12} />
@@ -75,8 +67,8 @@ export default function Dashboard() {
           </ResponsiveContainer>
         </div>
 
-        <div style={{ flex: 1, minWidth: 250, background: '#fff', borderRadius: 8, padding: 20, border: '1px solid #e5e4e7' }}>
-          <h3 style={{ margin: '0 0 16px', fontSize: 16 }}>Categories</h3>
+        <div style={{ flex: 1, minWidth: 250 }} className={styles.chartBox}>
+          <h3 className={styles.chartTitle}>Categories</h3>
           <ResponsiveContainer width="100%" height={250}>
             <PieChart>
               <Pie data={categoryData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={80} label>
@@ -89,8 +81,8 @@ export default function Dashboard() {
           </ResponsiveContainer>
         </div>
 
-        <div style={{ flex: 2, minWidth: 300, background: '#fff', borderRadius: 8, padding: 20, border: '1px solid #e5e4e7' }}>
-          <h3 style={{ margin: '0 0 16px', fontSize: 16 }}>User Trend</h3>
+        <div style={{ flex: 2, minWidth: 300 }} className={styles.chartBox}>
+          <h3 className={styles.chartTitle}>User Trend</h3>
           <ResponsiveContainer width="100%" height={250}>
             <LineChart data={userTrend}>
               <XAxis dataKey="day" fontSize={12} />

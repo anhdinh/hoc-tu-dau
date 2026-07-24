@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import api from '../../api'
-import Modal from '../../components/Modal'
-import ConfirmPopup from '../../components/ConfirmPopup'
-import { useToast } from '../../stores/toastStore'
+import api from '@/services/api'
+import Modal from '@/components/Modal'
+import ConfirmPopup from '@/components/ConfirmPopup'
+import { useToast } from '@/stores/toastStore'
 
 type User = {
   id: string

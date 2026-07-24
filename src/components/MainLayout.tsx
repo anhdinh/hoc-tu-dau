@@ -3,7 +3,7 @@ import Sidebar from './Sidebar/Sidebar'
 import Breadcrumb from './Breadcrumb'
 import ToastContainer from './ToastContainer'
 import { ThemeProvider } from './ThemeProvider'
-import { UserProvider } from '../contexts/UserContext'
+import { UserProvider } from '@/contexts/UserContext'
 import styles from './MainLayout.module.css'
 
 export default function MainLayout() {

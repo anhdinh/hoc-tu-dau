@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import api from '../../api'
-import type { ToastType } from '../Toast'
-import Toast from '../Toast'
+import api from '@/services/api'
+import type { ToastType } from '@/components/Toast'
+import Toast from '@/components/Toast'
 import styles from './Login.module.css'
 import { useNavigate } from 'react-router-dom'
 export default function Login() {

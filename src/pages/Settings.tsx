@@ -1,4 +1,4 @@
-import { useTheme } from '../stores/themeStore'
+import { useTheme } from '@/stores/themeStore'
 
 export default function Settings() {
   const { theme, toggle } = useTheme()

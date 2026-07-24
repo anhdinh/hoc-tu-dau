@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import api from '../../api'
-import { useCart } from '../../stores/cartStore'
-import ConfirmPopup from '../ConfirmPopup'
+import api from '@/services/api'
+import { useCartTotalItems, useCartTotalPrice } from '@/stores/cartStore'
+import ConfirmPopup from '@/components/ConfirmPopup'
 import styles from './Sidebar.module.css'
 import UserInfo from './UserInfo'
 import Menu from './Menu'
@@ -21,7 +21,8 @@ export default function Sidebar() {
   }, [])
 
   function CartBadge({ collapsed }: { collapsed: boolean }) {
-    const { totalItems, totalPrice } = useCart()
+    const totalItems = useCartTotalItems()
+    const totalPrice = useCartTotalPrice()
     return (
       <Link to="/products" className={styles.cartBadge}>
         <span>🛒</span>

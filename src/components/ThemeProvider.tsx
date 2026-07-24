@@ -1,14 +1,5 @@
 import { useEffect, type ReactNode } from 'react'
-import { useTheme } from '../stores/themeStore'
-
-const lightVars = {
-  '--bg': '#ffffff',
-  '--bg-secondary': '#f5f5f5',
-  '--text': '#374151',
-  '--text-secondary': '#6b6375',
-  '--border': '#e5e4e7',
-  '--card-bg': '#ffffff',
-}
+import { useTheme } from '@/stores/themeStore'
 
 const darkVars = {
   '--bg': '#111118',
@@ -17,6 +8,15 @@ const darkVars = {
   '--text-secondary': '#9ca3af',
   '--border': '#2e303a',
   '--card-bg': '#1f2028',
+}
+
+const lightVars = {
+  '--bg': '#ffffff',
+  '--bg-secondary': '#f5f5f5',
+  '--text': '#374151',
+  '--text-secondary': '#6b6375',
+  '--border': '#e5e4e7',
+  '--card-bg': '#ffffff',
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {

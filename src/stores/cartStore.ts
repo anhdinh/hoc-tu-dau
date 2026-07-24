@@ -10,8 +10,6 @@ export type CartItem = {
 
 type CartStore = {
   items: CartItem[]
-  totalItems: number
-  totalPrice: number
   add: (id: number, name: string, price: number) => void
   remove: (id: number) => void
   clear: () => void
@@ -21,8 +19,6 @@ export const useCart = create<CartStore>()(
   persist(
     (set) => ({
       items: [],
-      totalItems: 0,
-      totalPrice: 0,
 
       add: (id, name, price) =>
         set((s) => {
@@ -30,12 +26,7 @@ export const useCart = create<CartStore>()(
           const items = exist
             ? s.items.map((i) => (i.id === id ? { ...i, qty: i.qty + 1 } : i))
             : [...s.items, { id, name, price, qty: 1 }]
-
-          return {
-            items,
-            totalItems: s.totalItems + 1,
-            totalPrice: s.totalPrice + price,
-          }
+          return { items }
         }),
 
       remove: (id) =>
@@ -48,20 +39,24 @@ export const useCart = create<CartStore>()(
               items: s.items.map((i) =>
                 i.id === id ? { ...i, qty: i.qty - 1 } : i
               ),
-              totalItems: s.totalItems - 1,
-              totalPrice: s.totalPrice - item.price,
             }
           }
 
-          return {
-            items: s.items.filter((i) => i.id !== id),
-            totalItems: s.totalItems - 1,
-            totalPrice: s.totalPrice - item.price,
-          }
+          return { items: s.items.filter((i) => i.id !== id) }
         }),
 
-      clear: () => set({ items: [], totalItems: 0, totalPrice: 0 }),
+      clear: () => set({ items: [] }),
     }),
     { name: 'cart-storage' }
   )
 )
+
+// ── Derived selectors ──────────────────────────────────────────────
+
+export function useCartTotalItems() {
+  return useCart((s) => s.items.reduce((sum, i) => sum + i.qty, 0))
+}
+
+export function useCartTotalPrice() {
+  return useCart((s) => s.items.reduce((sum, i) => sum + i.price * i.qty, 0))
+}
